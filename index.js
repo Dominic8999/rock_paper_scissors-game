@@ -8,8 +8,9 @@ console.log(computer_choice)
 
 let player_choice = prompt("Choose your tool: rock, paper or scissors.")
 
+
 function game(){
-    let message = undefined
+    let message = console.info("deafult message")
     if (computer_choice == "rock" && player_choice == "scissors" || computer_choice == "paper" && player_choice == "rock"
     || computer_choice == "scissors" && player_choice == "paper"){
         message = alert("The computer has won!")
@@ -26,4 +27,22 @@ function game(){
     alert(message)
     console.log(message)        
 }
+function check(){
+    if (player_choice == ""){
+        let warning = alert("You typed no tool whatsoever :(")
+        return warning
+    }
+    else{
+        try{
+            game()
+        }
+        catch(e){
+            let error = console.error(`${e} is supposed to happened if end user typed one of the tool correctly`)
+            return error
+        }
+    }
+    console.warn(warning)
+    alert(warning)
+}
+check()
 game()
