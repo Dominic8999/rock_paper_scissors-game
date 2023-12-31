@@ -23,7 +23,7 @@ function game(){
         message = alert("draw")
         return message
     }
-    console.log(message)
     alert(message)
-    }
+    console.log(message)        
+}
 game()
