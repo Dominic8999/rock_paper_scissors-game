@@ -1,3 +1,5 @@
+const btnEl = document.querySelector("#btnEl")
+
 let tools = ["rock", "paper", "scissors"]
 
 let random_number = Math.floor(Math.random() * 3)
@@ -7,7 +9,6 @@ console.log(random_number)
 console.log(computer_choice)
 
 let player_choice = prompt("Choose your tool: rock, paper or scissors.")
-
 
 function game(){
     if (computer_choice == "rock" && player_choice == "scissors" || computer_choice == "paper" && player_choice == "rock"
@@ -31,19 +32,21 @@ function game(){
         return message
     }
 }
+
 function check(){
-    if (player_choice == ""){
-        let warning = alert("You typed no tool whatsoever :(")
-        console.log("The user typed no words at all :(")
-        return warning
+    try{
+        if (player_choice == ""){
+            let warning = alert("You typed no tool whatsoever :(")
+            console.log("The user typed no words at all :(")
+            return warning
+        }
+        else{
+            game()
+        }
     }
-    else{
-        game()
+    catch(e){
+        console.info(`"${e}" error is supposed to happened if end user typed one of the tool correctly`)
     }
 }
-try{
-    check()
-}
-catch(e){
-    console.info(`"${e}" error is supposed to happened if end user typed one of the tool correctly`)
-}
+
+btnEl.addEventListener("click", check())
