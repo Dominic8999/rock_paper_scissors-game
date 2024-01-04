@@ -1,18 +1,18 @@
-const btnEl = document.querySelector("#btnEl");
+import dd from dd
 
 let tools = ["rock", "paper", "scissors"];
 
 function game(player_choice) {
     let random_number = Math.floor(Math.random() * 3);
     let computer_choice = tools[random_number];
-
+    
     function rules() {
         if (computer_choice == "rock" && player_choice == "scissors" || computer_choice == "paper" && player_choice == "rock"
-            || computer_choice == "scissors" && player_choice == "paper") {
+        || computer_choice == "scissors" && player_choice == "paper") {
             return `The computer has won! The computer used ${computer_choice}, and you used ${player_choice}`;
         }
         if (player_choice == "rock" && computer_choice == "scissors" || player_choice == "paper" && computer_choice == "rock"
-            || player_choice == "scissors" && computer_choice == "paper") {
+        || player_choice == "scissors" && computer_choice == "paper") {
             return `You've won the game! You've used ${player_choice}, and the computer used ${computer_choice}.`;
         }
         if (computer_choice == player_choice) {
@@ -20,14 +20,14 @@ function game(player_choice) {
         }
         throw new Error("Invalid game outcome");
     }
-
+    
     try {
         let info = rules();
         alert(info);
-        console.log(info);
+        console.info(info);
     } catch (error) {
-        console.error(`something went wrong, and the error is: "${error}".`)
-        alert("You clearly did mispelt the one of the names. Try again :)")
+        console.error(`One of the names were mispelt, and the error is: "${error}".`)
+        alert("You clearly did mispelt the one of the names. Try again :-)")
     }
 }
 
@@ -46,4 +46,7 @@ function check() {
     }
 }
 
+// HTML section
+
+const btnEl = document.querySelector("#btnEl");
 btnEl.addEventListener("click", check);

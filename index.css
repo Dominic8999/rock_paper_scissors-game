@@ -1,6 +1,7 @@
 body {
     background-color: #222;
     color: #fff;
+    scroll-behavior: smooth;
 }
 
 div {
@@ -13,10 +14,12 @@ div {
 button {
     position: relative;
     border: none;
-    border-radius: 25%;
-    min-width: 25%;
+    border-radius: 15%;
+    min-width: 15%;
     min-height: 50%;
-    max-width: 30%;
+    max-width: 16%;
     max-height: 75%;
-
+    padding: 25px 25px;
+    background-color: rgb(4, 138, 10);
+    color: black;
 }
