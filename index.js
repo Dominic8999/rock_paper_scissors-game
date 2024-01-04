@@ -22,11 +22,12 @@ function game(player_choice) {
     }
 
     try {
-        let information = rules();
-        alert(information);
-        console.log(information);
+        let info = rules();
+        alert(info);
+        console.log(info);
     } catch (error) {
-        console.error(error);
+        console.error(`something went wrong, and the error is: "${error}".`)
+        alert("You clearly did mispelt the one of the names. Try again :)")
     }
 }
 
