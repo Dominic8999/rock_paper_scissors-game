@@ -1,0 +1,25 @@
+body {
+    background-color: #222;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+div {
+    display: block;
+    margin: 100px auto auto auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+button {
+    position: relative;
+    border: none;
+    border-radius: 15%;
+    min-width: 15%;
+    min-height: 50%;
+    max-width: 16%;
+    max-height: 75%;
+    padding: 25px 25px;
+    background-color: rgb(4, 138, 10);
+    color: black;
+}

@@ -1,49 +1,52 @@
-let tools = ["rock", "paper", "scissors"]
+import dd from dd
 
-let random_number = Math.floor(Math.random() * 3)
-let computer_choice = tools[random_number]
+let tools = ["rock", "paper", "scissors"];
 
-console.log(random_number)
-console.log(computer_choice)
-
-let player_choice = prompt("Choose your tool: rock, paper or scissors.")
-
-
-function game(){
-    if (computer_choice == "rock" && player_choice == "scissors" || computer_choice == "paper" && player_choice == "rock"
-    || computer_choice == "scissors" && player_choice == "paper"){
-        message = `The computer has won! The computer used ${computer_choice}, and you used ${player_choice}`
-        alert(message)
-        console.log(message)
-        return message
+function game(player_choice) {
+    let random_number = Math.floor(Math.random() * 3);
+    let computer_choice = tools[random_number];
+    
+    function rules() {
+        if (computer_choice == "rock" && player_choice == "scissors" || computer_choice == "paper" && player_choice == "rock"
+        || computer_choice == "scissors" && player_choice == "paper") {
+            return `The computer has won! The computer used ${computer_choice}, and you used ${player_choice}`;
+        }
+        if (player_choice == "rock" && computer_choice == "scissors" || player_choice == "paper" && computer_choice == "rock"
+        || player_choice == "scissors" && computer_choice == "paper") {
+            return `You've won the game! You've used ${player_choice}, and the computer used ${computer_choice}.`;
+        }
+        if (computer_choice == player_choice) {
+            return `It's a draw! The computer used ${computer_choice}, and you used ${player_choice} at the same time!`;
+        }
+        throw new Error("Invalid game outcome");
     }
-    if (player_choice == "rock" && computer_choice == "scissors" || player_choice == "paper" && computer_choice == "rock"
-    || player_choice == "scissors" && computer_choice == "paper"){
-        message = `You've won the game! You've used ${player_choice}, and the computer used ${computer_choice}.`
-        alert(message)
-        console.log(message)
-        return message
-    }
-    if (computer_choice == player_choice){
-        message = `It's a draw! The computer used ${computer_choice}, and you used ${player_choice} at the same time!`
-        alert(message)
-        console.log(message)
-        return message
-    }
-}
-function check(){
-    if (player_choice == ""){
-        let warning = alert("You typed no tool whatsoever :(")
-        console.log("The user typed no words at all :(")
-        return warning
-    }
-    else{
-        game()
+    
+    try {
+        let info = rules();
+        alert(info);
+        console.info(info);
+    } catch (error) {
+        console.error(`One of the names were mispelt, and the error is: "${error}".`)
+        alert("You clearly did mispelt the one of the names. Try again :-)")
     }
 }
-try{
-    check()
+
+function check() {
+    let player_choice = prompt("Choose your tool: rock, paper, or scissors.");
+    try {
+        if (!player_choice) {
+            let warning = alert("You didn't choose any tool :(");
+            console.log("The user didn't type anything :(");
+            return warning;
+        } else {
+            game(player_choice);
+        }
+    } catch (e) {
+        console.info(`"${e}" error is supposed to happen if the end user typed one of the tools correctly.`);
+    }
 }
-catch(e){
-    console.info(`"${e}" error is supposed to happened if end user typed one of the tool correctly`)
-}
+
+// HTML section
+
+const btnEl = document.querySelector("#btnEl");
+btnEl.addEventListener("click", check);
