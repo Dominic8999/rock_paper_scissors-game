@@ -1,5 +1,3 @@
-import dd from dd
-
 let tools = ["rock", "paper", "scissors"];
 
 function game(player_choice) {
