@@ -1,12 +1,17 @@
+:root{
+    --green: rgb(4, 138, 10);
+    --margin: 100px auto auto auto;
+}
+
 body {
     background-color: #222;
     color: #fff;
     scroll-behavior: smooth;
 }
 
-div {
+div, #p {
     display: block;
-    margin: 100px auto auto auto;
+    margin: var(--margin);
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -14,12 +19,25 @@ div {
 button {
     position: relative;
     border: none;
-    border-radius: 15%;
+    border-radius: 10%;
     min-width: 15%;
     min-height: 50%;
     max-width: 16%;
     max-height: 75%;
     padding: 25px 25px;
-    background-color: rgb(4, 138, 10);
+    background-color: var(--green);
     color: black;
+}
+
+p {
+    font-size:large;
+    font-weight:550;
+}
+
+#datetime {
+    display: block;
+    margin: var(--margin);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

@@ -1,3 +1,5 @@
+// JS game section
+
 let tools = ["rock", "paper", "scissors"];
 
 function game(player_choice) {
@@ -47,4 +49,9 @@ function check() {
 // HTML section
 
 const btnEl = document.querySelector("#btnEl");
+const datetime = document.querySelector("#datetime")
+
 btnEl.addEventListener("click", check);
+
+let date = new Date()
+datetime.textContent += date
